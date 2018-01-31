@@ -5,11 +5,12 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-fbauth',
   templateUrl: './fbauth.component.html',
-  styleUrls: ['./fbauth.component.css']
+  styleUrls: ['./fbauth.component.scss']
 })
 export class FbauthComponent implements OnInit {
 
   /* Variables for the credentials (Signup /login form)*/
+  name: string;
   email: string;
   password: string;
 
@@ -19,7 +20,7 @@ export class FbauthComponent implements OnInit {
   }
   /* Click events (Template) */
   signup() {
-    this.authService.signup(this.email, this.password);
+    this.authService.signup(this.name, this.email, this.password);
     this.email = this.password = '';
   }
 

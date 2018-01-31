@@ -9,6 +9,11 @@ import { AuthService } from './auth.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PopoverComponent } from './popover/popover.component';
+import { PopoverModule } from 'ng2-popover';
+
+
 export const environment = {
   production: false,
   firebase: {
@@ -24,14 +29,16 @@ export const environment = {
 @NgModule({
   declarations: [
     AppComponent,
-    FbauthComponent
+    FbauthComponent,
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
-
+    AngularFireAuthModule,
+    NgbModule.forRoot(),
+    PopoverModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
